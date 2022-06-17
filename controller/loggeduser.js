@@ -15,8 +15,9 @@ const getdata=(req,res)=>{
 
 }
 const postdata=(req,res)=>{
-    const newcreate=new mode(req.body)
-    newcreate.save().then(()=>console.log("data inserted")).catch(()=>console.log("errr"))
+    console.log(req.body.name)
+    const newcreate=new mode(req.body.name)
+    newcreate.save().then(()=>console.log("data inserted")).catch((e)=>console.log("errr",e))
 
 }
 const deletedata=(req,res)=>{
@@ -24,9 +25,9 @@ const deletedata=(req,res)=>{
     mode.findByIdAndDelete({_id:req.params.id}).then(()=>console.log("data deleted")).catch(()=>console.log("errr delete"))
 }
 const updatedata=(req,res)=>{
-    var data=req.body
+    var data=req.body.values
     console.log(data)
-    mode.updateOne({name:req.body.name},{$set:{name:data.name,email:data.email}})
+    mode.findByIdAndUpdate({_id:req.params.id},{$set:{name:data.name,email:data.email}})
     .then(()=>console.log("updated")).catch(()=>console.log("update err"))
 }
 module.exports={getdata,postdata,deletedata,updatedata}

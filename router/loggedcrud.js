@@ -4,6 +4,6 @@ const crudRouter=express.Router();
 crudRouter.get("/getall",getdata)
 crudRouter.post("/postall",postdata)
 crudRouter.delete("/deleteall/:id",deletedata)
-crudRouter.put("/updateall",updatedata)
+crudRouter.put("/updateall/:id",updatedata)
 
 module.exports=crudRouter;

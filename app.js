@@ -6,6 +6,6 @@ const cors=require("cors")
 app.use(cors());
 app.use(express.json())
 
-app.use("/",userRouter)
+app.use("/data",userRouter)
 app.use("/crud",crudRouter)
 module.exports=app

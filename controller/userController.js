@@ -1,9 +1,9 @@
-const userschemamodel=require("../model/model")
+const mode=require("../model/model")
 const {pass,jwtgen}=require("../util/utils")
 // const {pass} =require("../util/utils")
 const data=(req,res)=>{
 console.log(req.body)
-const user=new userschemamodel(req.body)
+const user=new mode(req.body)
 user.save().then(()=>console.log("data posted"))
 .catch((err)=>console.log(err))
 }
@@ -11,7 +11,7 @@ const login=(req,res)=>{
 
 // pass(10,10)
  console.log(req.body)
-userschemamodel.findOne({name:req.body.name})
+mode.findOne({name:req.body.name})
 .then(result=>
     pass(req.body.password,result.password)
 .then((all)=>{
