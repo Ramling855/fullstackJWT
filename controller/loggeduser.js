@@ -1,13 +1,18 @@
 const { response } = require("../app")
 const mode=require("../model/model")
-const getdata=async(req,res)=>{
- const all=await mode.find({})
-    // .then(data=>res.json({message:"data"})).catch(err=>console.log(err))
-// console.log(all)
-// res.json({
-//     message:"done"
-// })
-res.send(all)
+const getdata=(req,res)=>{
+//   const all=  mode.find()
+//     res.send(all)
+//     try{
+
+//         const all=await mode.find({})
+//         console.log(all)
+// res.json({all})
+//     }catch(err){console.log(err)}
+ mode.find()
+    .then(data=>res.json({data:data})).catch(err=>console.log(err))
+
+
 }
 const postdata=(req,res)=>{
     const newcreate=new mode(req.body)
