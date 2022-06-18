@@ -10,10 +10,11 @@ if(err){console.log(err)
     res.json({
     message:"token not valid"
 })}else{
-res.json({
-    token:"success jwt token"
-})
-    // next()
+    next()
+// res.json({
+//     token:"success jwt token"
+// })
+    
 }
         })
 

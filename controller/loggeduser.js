@@ -9,7 +9,8 @@ const getdata=(req,res)=>{
 //         console.log(all)
 // res.json({all})
 //     }catch(err){console.log(err)}
- mode.find()
+//  mode.find({},{},{skip:0,limit:5})
+mode.find().skip(1).limit(10).sort({name:-1})
     .then(data=>res.json({data:data})).catch(err=>console.log(err))
 
 
